@@ -1,45 +1,23 @@
-import express from 'express';
-import path from 'path';
-import bodyParser from 'body-parser';
-import logger from 'morgan';
-import mongoose from 'mongoose';
-import cors from 'cors';
-import SourceMapSupport from 'source-map-support';
-import routes from './src/routes/api';
-// define our app using express
-const app = express();
+const express = require('express')
+const bodyParser = require('body-parser')
+const cors = require('cors')
 
+const db = require('./db')
+const movieRouter = require('./routes/pets')
+
+const app = express()
+const apiPort = 4000
+
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
+app.use(bodyParser.json())
 
-app.use("/api/uploads", express.static(__dirname + '/uploads'));
+db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
-
-// configure app
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended:true }));
-app.use(express.static(path.join(__dirname, 'public')));
-
-
-// set the port
-const port = process.env.PORT || 3001;
-
-// connect to database
-mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/mernDocker');
-SourceMapSupport.install();
-app.get('/', (req,res) => {
-  return res.end('Api working');
+app.get('/', (req, res) => {
+    res.send('Hello World!')
 })
 
-app.use('/api', routes);
+app.use('/api', movieRouter)
 
-// catch 404
-app.use((req, res, next) => {
-  res.status(404).send('<h2 align=center>Page Not Found!</h2>');
-});
-
-// start the server
-app.listen(port,() => {
-  console.log(`App Server Listening at ${port}`);
-});
+app.listen(apiPort, () => console.log(`Server running on port ${apiPort}`))

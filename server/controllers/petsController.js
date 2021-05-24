@@ -1,77 +1,120 @@
-import pet from "../models/pets";
+const Pet = require('../models/pet')
 
-class Pet {
+addPet = (req, res) => {
+    const body = req.body
 
+    if (!body) {
+        return res.status(400).json({
+            success: false,
+            error: 'You must provide a pet',
+        })
+    }
+
+    const pet = new Pet(body)
+
+    if (!pet) {
+        return res.status(400).json({ success: false, error: err })
+    }
+
+    pet
+        .save()
+        .then(() => {
+            return res.status(201).json({
+                success: true,
+                id: pet._id,
+                message: 'Pet created!',
+            })
+        })
+        .catch(error => {
+            return res.status(400).json({
+                error,
+                message: 'Pet not created!',
+            })
+        })
 }
 
-Pet.prototype.getPets = (req, res) => {
-    pet.find({}, (err, pets) => {
+updatePet = async (req, res) => {
+    const body = req.body
+
+    if (!body) {
+        return res.status(400).json({
+            success: false,
+            error: 'You must provide a body to update',
+        })
+    }
+
+    Pet.findOne({ _id: req.params.id }, (err, pet) => {
         if (err) {
-            res.send(err);
-        } else {
-            console.log("result pets", pets);
-            res.send({ 'success': true, 'message': 'pets fetched successfully', pets });
+            return res.status(404).json({
+                err,
+                message: 'Pet not found!',
+            })
         }
+        pet.name = body.name
+        pet.time = body.time
+        pet.rating = body.rating
+        pet
+            .save()
+            .then(() => {
+                return res.status(200).json({
+                    success: true,
+                    id: pet._id,
+                    message: 'Pet updated!',
+                })
+            })
+            .catch(error => {
+                return res.status(404).json({
+                    error,
+                    message: 'Pet not updated!',
+                })
+            })
     })
 }
 
-Pet.prototype.getPetById = (req, res) => {
-    let id = req.params.id;
-    pet.findById(id, (err, result) => {
+deletePet = async (req, res) => {
+    await Pet.findOneAndDelete({ _id: req.params.id }, (err, pet) => {
         if (err) {
-            res.send(err);
-        } else {
-            res.send(result);
+            return res.status(400).json({ success: false, error: err })
         }
-    })
+
+        if (!pet) {
+            return res
+                .status(404)
+                .json({ success: false, error: `Pet not found` })
+        }
+
+        return res.status(200).json({ success: true, data: pet })
+    }).catch(err => console.log(err))
 }
 
-// Pet.prototype.getCustomerByCustomId = (req, res) => {
-//     let id = req.body.id;
-//     customerModel.findOne({ customerId: id }, (err, result) => {
-//         if (err) {
-//             res.send(err);
-//         } else {
-//             res.send({ 'success': true, 'message': 'Customer fetched successfully', result });
-//         }
-//     })
-// }
-
-Pet.prototype.addPet = (req, res) => {
-    let obj = req.body;
-    console.log("obj ", obj);
-    let model = new pet(obj);
-    console.log("model ", model);
-    model.save((err, result) => {
+getPetById = async (req, res) => {
+    await Pet.findOne({ _id: req.params.id }, (err, pet) => {
         if (err) {
-            res.send(err);
-        } else {
-            res.send({ 'success': true, 'message': 'Pet fetched successfully', result });
+            return res.status(400).json({ success: false, error: err })
         }
-    })
+
+        return res.status(200).json({ success: true, data: pet })
+    }).catch(err => console.log(err))
 }
 
-Pet.prototype.updatePetByID = (req, res) => {
-    let id = req.body._id;
-    pet.findByIdAndUpdate(id, { name: req.body.name, type: req.body.type, age:req.body.age, color:req.body.color }, (err, result) => {
+getPets = async (req, res) => {
+    await Pet.find({}, (err, pets) => {
         if (err) {
-            res.send(err);
-        } else {
-            res.send(result);
+            return res.status(400).json({ success: false, error: err })
         }
-    })
+        if (!pets.length) {
+            return res
+                .status(404)
+                .json({ success: false, error: `Pet not found` })
+        }
+        return res.status(200).json({ success: true, data: pets })
+    }).catch(err => console.log(err))
 }
 
-Pet.prototype.deletePetByID = (req, res) => {
-    let id = req.body._id;
-    console.log("delete pet ", req.body);
-    pet.findByIdAndRemove(id, (err, result) => {
-        if (err) {
-            res.send(err);
-        } else {
-            res.send(result);
-        }
-    })
+module.exports = {
+    addPet,
+    updatePet,
+    deletePet,
+    getPets,
+    getPetById,
 }
-
-module.exports = Pet;
