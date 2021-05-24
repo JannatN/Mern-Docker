@@ -27,6 +27,7 @@ const Button = styled.button.attrs({
     className: `btn btn-primary`,
 })`
     margin: 15px 15px 15px 5px;
+    background-color: pink;
 `
 
 const CancelButton = styled.a.attrs({
