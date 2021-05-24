@@ -41,8 +41,11 @@ class PetsInsert extends Component {
 
         this.state = {
             name: '',
-            rating: '',
-            time: '',
+            type: '',
+            age: '',
+            color: '',
+            price: '',
+
         }
     }
 
@@ -50,37 +53,43 @@ class PetsInsert extends Component {
         const name = event.target.value
         this.setState({ name })
     }
-
-    handleChangeInputRating = async event => {
-        const rating = event.target.validity.valid
-            ? event.target.value
-            : this.state.rating
-
-        this.setState({ rating })
+    handleChangeInputType = async event => {
+        const type = event.target.value
+        this.setState({ type })
+    }
+    handleChangeInputAge = async event => {
+        const age = event.target.value
+        this.setState({ age })
     }
 
-    handleChangeInputTime = async event => {
-        const time = event.target.value
-        this.setState({ time })
+    handleChangeInputColor = async event => {
+        const color = event.target.value
+        this.setState({ color })
+    }
+    handleChangeInputPrice = async event => {
+        const price = event.target.value
+        this.setState({ price })
     }
 
     handleIncludePet = async () => {
-        const { name, rating, time } = this.state
-        const arrayTime = time.split('/')
-        const payload = { name, rating, time: arrayTime }
+        const { name, type, age, color, price } = this.state
+        const payload = { name, type, age, color, price }
 
         await api.addPet(payload).then(res => {
             window.alert(`Pet inserted successfully`)
             this.setState({
                 name: '',
-                rating: '',
-                time: '',
+                type: '',
+                age: '',
+                color: '',
+                price: '',
+
             })
         })
     }
 
     render() {
-        const { name, rating, time } = this.state
+        const { name, type, age, color, price } = this.state
         return (
             <Wrapper>
                 <Title>Add Pet</Title>
@@ -91,24 +100,30 @@ class PetsInsert extends Component {
                     value={name}
                     onChange={this.handleChangeInputName}
                 />
-
-                <Label>Rating: </Label>
-                <InputText
-                    type="number"
-                    step="0.1"
-                    lang="en-US"
-                    min="0"
-                    max="10"
-                    pattern="[0-9]+([,\.][0-9]+)?"
-                    value={rating}
-                    onChange={this.handleChangeInputRating}
-                />
-
-                <Label>Time: </Label>
+                 <Label>Type: </Label>
                 <InputText
                     type="text"
-                    value={time}
-                    onChange={this.handleChangeInputTime}
+                    value={type}
+                    onChange={this.handleChangeInputType}
+                />
+                 <Label>Age: </Label>
+                <InputText
+                    type="text"
+                    value={age}
+                    onChange={this.handleChangeInputAge}
+                />
+                 <Label>Color: </Label>
+                <InputText
+                    type="text"
+                    value={color}
+                    onChange={this.handleChangeInputColor}
+                />
+
+                <Label>Price: </Label>
+                <InputText
+                    type="text"
+                    value={price}
+                    onChange={this.handleChangeInputPrice}
                 />
 
                 <Button onClick={this.handleIncludePet}>Add Pet</Button>

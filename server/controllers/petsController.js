@@ -51,8 +51,11 @@ updatePet = async (req, res) => {
             })
         }
         pet.name = body.name
-        pet.time = body.time
-        pet.rating = body.rating
+        pet.type = body.type
+        pet.age = body.age
+        pet.color = body.color
+        pet.price = body.price
+
         pet
             .save()
             .then(() => {

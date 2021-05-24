@@ -4,8 +4,11 @@ const Schema = mongoose.Schema
 const Pet = new Schema(
     {
         name: { type: String, required: true },
-        time: { type: [String], required: true },
-        rating: { type: Number, required: false },
+        type: { type: String, required: true },
+        age: { type: String, required: true },
+        color: { type: String, required: true },
+        price: { type: String, required: true },
+
     },
     { timestamps: true },
 )

@@ -68,7 +68,9 @@ class PetList extends Component {
             this.setState({
                 pets: pets.data.data,
                 isLoading: false,
-            })
+            })      
+              console.log(pets)
+
         })
     }
 
@@ -87,14 +89,23 @@ class PetList extends Component {
                 filterable: true,
             },
             {
-                Header: 'Rating',
-                accessor: 'rating',
+                Header: 'Type',
+                accessor: 'type',
                 filterable: true,
             },
             {
-                Header: 'Time',
-                accessor: 'time',
-                Cell: props => <span>{props.value.join(' / ')}</span>,
+                Header: 'Age',
+                accessor: 'age',
+                filterable: true,
+            }, {
+                Header: 'Color',
+                accessor: 'color',
+                filterable: true,
+            },
+            {
+                Header: 'Price',
+                accessor: 'price',
+                filterable: true,
             },
             {
                 Header: '',
