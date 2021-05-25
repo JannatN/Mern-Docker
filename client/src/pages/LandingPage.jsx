@@ -1,4 +1,4 @@
-import './LandingPage';
+// import './LandingPage.css';
 import { Link } from 'react-router-dom'
 import React, { Component } from "react";
 import Logo from './logoPets.jpg';
@@ -7,22 +7,23 @@ import Logo from './logoPets.jpg';
 class LandingPage extends Component {
     render() {
         return (
-            <div class="container">
+            <div style={{
+                backgroundColor: '#fbece3',
+            }}>
                 <div class="row">
                     <div class="col-sm"></div>
                     <div class="col-sm">
-                        <img src={Logo} alt='Pets logo' />
+                        <img src={Logo} alt='Pets logo' width="550px" />
                         <ul className="listPets" >
                             <Link to="/pets/list">
-                                <a class="btn btn-primary btn-lg">View Pets</a>
+                                <button className="button">View Pets</button>
                             </Link>
                             <Link to="/pets/create">
-                                <a class="btn btn-primary btn-lg"> Add Pet </a>
+                                <button className="button">Add Pet </button>
                             </Link>
                         </ul>
-
-                        <p>Only Admins Can use the System</p>
                     </div>
+
                     <div class="col-sm"></div>
                 </div>
             </div>

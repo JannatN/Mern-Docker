@@ -1,33 +1,51 @@
 import React, { Component } from 'react'
 import api from '../api'
-
+import { NavBar } from '../components'
+import './index.css';
 import styled from 'styled-components'
 
 const Title = styled.h1.attrs({
     className: 'h1',
-})``
+})` 
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    color: #301f10;
+    font-weight: 700;
+    `
 
 const Wrapper = styled.div.attrs({
     className: 'form-group',
 })`
-    margin: 0 30px;
+    width: 100%;
+    margin-top:0px
+    background-color: #fbece3;
+
 `
 
 const Label = styled.label`
     margin: 5px;
+    font-weight: 700;
+
 `
 
 const InputText = styled.input.attrs({
     className: 'form-control',
 })`
-    margin: 5px;
+    margin: 2px;
+`
+const Container = styled.div.attrs({
+    className: 'form-group',
+})`
+    width: 70%;
+    margin-left:10px;
+    margin-top:0px
+    padding-left: 22%;
 `
 
 const Button = styled.button.attrs({
     className: `btn btn-primary`,
 })`
     margin: 15px 15px 15px 5px;
-    background-color: pink;
 `
 
 const CancelButton = styled.a.attrs({
@@ -108,8 +126,9 @@ class PetsUpdate extends Component {
         const { name, type, age, color, price } = this.state
         return (
             <Wrapper>
-                <Title>Create Pet</Title>
-
+                 <NavBar></NavBar>
+                <Container>
+                <Title>Update Pet</Title>
                 <Label>Name: </Label>
                 <InputText
                     type="text"
@@ -144,6 +163,7 @@ class PetsUpdate extends Component {
 
                 <Button onClick={this.handleUpdatePet}>Update Pet</Button>
                 <CancelButton href={'/pets/list'}>Cancel</CancelButton>
+                </Container>
             </Wrapper>
         )
     }

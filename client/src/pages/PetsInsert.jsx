@@ -9,7 +9,9 @@ const Title = styled.h1.attrs({
 })`
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: center;
-    color: #fbece3;
+    color: #301f10;
+    font-weight: 700;
+
 
 `
 
@@ -46,7 +48,6 @@ const Button = styled.button.attrs({
     className: `btn btn-primary`,
 })`
     margin: 15px 15px 15px 5px;
-    background-color: green;
 
 `
 const Navbar = styled.nav.attrs({
@@ -120,8 +121,9 @@ class PetsInsert extends Component {
         const { name, type, age, color, price } = this.state
         return (
             <Wrapper>
-                <Navbar><Title>Add Pet</Title></Navbar>
+                <NavBar></NavBar>
                 <Container>
+                <Title>Add Pet</Title>
                     <Label>Name: </Label>
                     <InputText
                         type="text"
@@ -153,7 +155,6 @@ class PetsInsert extends Component {
                         value={price}
                         onChange={this.handleChangeInputPrice}
                     />
-
                     <Button onClick={this.handleIncludePet}>Add Pet</Button>
                     <CancelButton href={'/pets/list'}>Cancel</CancelButton>
                 </Container>

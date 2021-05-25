@@ -1,15 +1,33 @@
 import React, { Component } from 'react'
 import ReactTable from 'react-table'
 import api from '../api'
-
+import './index.css';
 import styled from 'styled-components'
-
 import 'react-table/react-table.css'
+import { NavBar } from '../components'
 
 const Wrapper = styled.div`
-    padding: 0 40px 40px 40px;
+    width: 100%;
+    margin-top:0px
+    background-color: #fbece3;
+    `
+const Title = styled.h1.attrs({
+    className: 'h1',
+})`
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    color: #301f10;
+    font-weight: 700;
+
+
 `
 
+const Container = styled.div.attrs({
+    className: 'form-group',
+})`
+    width: 100%;
+    margin-top:0px
+`
 const Update = styled.div`
     color: #ef9b0f;
     cursor: pointer;
@@ -68,8 +86,8 @@ class PetList extends Component {
             this.setState({
                 pets: pets.data.data,
                 isLoading: false,
-            })      
-              console.log(pets)
+            })
+            console.log(pets)
 
         })
     }
@@ -138,16 +156,21 @@ class PetList extends Component {
 
         return (
             <Wrapper>
-                {showTable && (
-                    <ReactTable
-                        data={pets}
-                        columns={columns}
-                        loading={isLoading}
-                        defaultPageSize={10}
-                        showPageSizeOptions={true}
-                        minRows={0}
-                    />
-                )}
+                <NavBar></NavBar>
+                <Container>
+                    <Title>List of Pets</Title>
+                    {showTable && (
+                        <ReactTable
+                            data={pets}
+                            columns={columns}
+                            loading={isLoading}
+                            defaultPageSize={10}
+                            showPageSizeOptions={true}
+                            minRows={0}
+                        />
+                    )}
+                </Container>
+
             </Wrapper>
         )
     }
