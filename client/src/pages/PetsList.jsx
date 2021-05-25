@@ -158,7 +158,6 @@ class PetList extends Component {
             <Wrapper>
                 <NavBar></NavBar>
                 <Container>
-                    <Title>List of Pets</Title>
                     {showTable && (
                         <ReactTable
                             data={pets}

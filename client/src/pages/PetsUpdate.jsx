@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import api from '../api'
 import { NavBar } from '../components'
-import './index.css';
 import styled from 'styled-components'
 
 const Title = styled.h1.attrs({

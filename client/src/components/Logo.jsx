@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import logo from '../pages/logoPets.jpg';
+import logo from '../assets/logoPets.jpg';
 
 
 
