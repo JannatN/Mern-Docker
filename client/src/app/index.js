@@ -1,7 +1,5 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-
-import { NavBar } from '../components'
 import { LandingPage, PetsList, PetsInsert, PetsUpdate } from '../pages'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -10,7 +8,6 @@ function App() {
     return (
         <Router>
          <Route path="/" exact component={LandingPage} />
-            {/* <NavBar /> */}
             <Switch>
                 <Route path="/pets/list" exact component={PetsList} />
                 <Route path="/pets/create" exact component={PetsInsert} />

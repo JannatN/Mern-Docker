@@ -33,6 +33,7 @@ const InnerDiv = styled.div.attrs({
      margin-top:25px;
      dispaly:grid;
     grid-template-columns: auto auto ;
+    grid-column-gap: 5px;
 
 `
 

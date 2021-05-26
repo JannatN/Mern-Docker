@@ -11,16 +11,6 @@ const Wrapper = styled.div`
     margin-top:0px
     background-color: #fbece3;
     `
-const Title = styled.h1.attrs({
-    className: 'h1',
-})`
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    text-align: center;
-    color: #301f10;
-    font-weight: 700;
-
-
-`
 
 const Container = styled.div.attrs({
     className: 'form-group',

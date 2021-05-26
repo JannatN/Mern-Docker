@@ -119,7 +119,7 @@ class PetsInsert extends Component {
             <Wrapper>
                 <NavBar></NavBar>
                 <Container>
-                    <Title>Add Pet</Title>
+                    <Title>Insert Pet</Title>
                     <Label>Type: </Label>
                     <InputText
                         type="text"
