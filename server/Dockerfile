@@ -1,14 +1,14 @@
 FROM node:14-slim
 
-WORKDIR /usr/src/app
+WORKDIR /Mern-Docker/app
 
 COPY ./package.json ./
-COPY ./yarn.lock ./
+COPY ./package-lock.json ./
 
-RUN yarn install
+RUN npm install
 
 COPY . .
 
-EXPOSE 5000
+EXPOSE 4000
 
 CMD [ "index.js" ]

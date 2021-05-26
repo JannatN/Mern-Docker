@@ -10,7 +10,7 @@ services:
   api-server:
     image: api-server
     ports:
-      - "5000:5000"
+      - "4000:4000"
     networks:
       - mern-app
     depends_on:
