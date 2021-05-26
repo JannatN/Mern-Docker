@@ -3,6 +3,7 @@
 This project is simple MERN stack app that allows the user to add, update, and delete a pet plus the ability to list all the pets in the system. This project aims to containerize the api server and react client and create docker-compose to connect them.
 
 ## To run the project:
+Run it on localhost:3000
 
 ```
 $ git clone https://github.com/JannatN/Mern-Docker.git
