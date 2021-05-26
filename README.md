@@ -19,8 +19,8 @@ $ nodemon index.js
 ```
 $ cd Mern-Docker
 $ cd client
-$ npm install / yarn install
-$ npm start / yarn start
+$ npm install
+$ npm start 
 ```
 ## Containerization 
  Install docker and run the following in the terminal:
