@@ -59,8 +59,8 @@ class PetsUpdate extends Component {
 
         this.state = {
             id: this.props.match.params.id,
-            name: '',
             type: '',
+            sex: '',
             age: '',
             color: '',
             price: '',
@@ -68,13 +68,13 @@ class PetsUpdate extends Component {
         }
     }
 
-    handleChangeInputName = async event => {
-        const name = event.target.value
-        this.setState({ name })
-    }
     handleChangeInputType = async event => {
         const type = event.target.value
         this.setState({ type })
+    }
+    handleChangeInputSex = async event => {
+        const sex = event.target.value
+        this.setState({ sex })
     }
     handleChangeInputAge = async event => {
         const age = event.target.value
@@ -91,14 +91,14 @@ class PetsUpdate extends Component {
     }
 
     handleUpdatePet = async () => {
-        const { id, name, type, age, color, price } = this.state
-        const payload = { name, type, age, color, price }
+        const { id, type, sex, age, color, price } = this.state
+        const payload = { type, sex, age, color, price }
 
         await api.updatePetById(id, payload).then(res => {
             window.alert(`Pet updated successfully`)
             this.setState({
-                name: '',
                 type: '',
+                sex: '',
                 age: '',
                 color: '',
                 price: '',
@@ -112,8 +112,8 @@ class PetsUpdate extends Component {
         const pet = await api.getPetById(id)
 
         this.setState({
-            name: pet.data.data.name,
             type: pet.data.data.type,
+            sex: pet.data.data.sex,
             age: pet.data.data.age,
             color: pet.data.data.color,
             price: pet.data.data.price,
@@ -122,46 +122,46 @@ class PetsUpdate extends Component {
     }
 
     render() {
-        const { name, type, age, color, price } = this.state
+        const { type, sex, age, color, price } = this.state
         return (
             <Wrapper>
-                 <NavBar></NavBar>
+                <NavBar></NavBar>
                 <Container>
-                <Title>Update Pet</Title>
-                <Label>Name: </Label>
-                <InputText
-                    type="text"
-                    value={name}
-                    onChange={this.handleChangeInputName}
-                />
-                <Label>Type: </Label>
-                <InputText
-                    type="text"
-                    value={type}
-                    onChange={this.handleChangeInputType}
-                />
-                <Label>Age: </Label>
-                <InputText
-                    type="text"
-                    value={age}
-                    onChange={this.handleChangeInputAge}
-                />
-                <Label>Color: </Label>
-                <InputText
-                    type="text"
-                    value={color}
-                    onChange={this.handleChangeInputColor}
-                />
+                    <Title>Update Pet</Title>
+                    <Label>Type: </Label>
+                    <InputText
+                        type="text"
+                        value={type}
+                        onChange={this.handleChangeInputType}
+                    />
+                    <Label>Sex: </Label>
+                    <InputText
+                        type="text"
+                        value={sex}
+                        onChange={this.handleChangeInputSex}
+                    />
+                    <Label>Age: </Label>
+                    <InputText
+                        type="text"
+                        value={age}
+                        onChange={this.handleChangeInputAge}
+                    />
+                    <Label>Color: </Label>
+                    <InputText
+                        type="text"
+                        value={color}
+                        onChange={this.handleChangeInputColor}
+                    />
 
-                <Label>Price: </Label>
-                <InputText
-                    type="text"
-                    value={price}
-                    onChange={this.handleChangeInputPrice}
-                />
+                    <Label>Price: </Label>
+                    <InputText
+                        type="text"
+                        value={price}
+                        onChange={this.handleChangeInputPrice}
+                    />
 
-                <Button onClick={this.handleUpdatePet}>Update Pet</Button>
-                <CancelButton href={'/pets/list'}>Cancel</CancelButton>
+                    <Button onClick={this.handleUpdatePet}>Update Pet</Button>
+                    <CancelButton href={'/pets/list'}>Cancel</CancelButton>
                 </Container>
             </Wrapper>
         )

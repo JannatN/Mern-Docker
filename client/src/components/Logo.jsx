@@ -8,7 +8,7 @@ const Wrapper = styled.a.attrs({
     className: 'navbar-brand',
 })`
     margin-top:15px;
-    color:white;
+    color:'white';
 `
 
 class Logo extends Component {

@@ -50,12 +50,7 @@ const Button = styled.button.attrs({
     margin: 15px 15px 15px 5px;
 
 `
-const Navbar = styled.nav.attrs({
-    className: `navbar`,
-})`
-    margin: 15px 15px 15px 5px;
 
-`
 
 const CancelButton = styled.a.attrs({
     className: `btn btn-danger`,
@@ -78,13 +73,14 @@ class PetsInsert extends Component {
         }
     }
 
-    handleChangeInputName = async event => {
-        const name = event.target.value
-        this.setState({ name })
-    }
+
     handleChangeInputType = async event => {
         const type = event.target.value
         this.setState({ type })
+    }
+    handleChangeInputSex = async event => {
+        const sex = event.target.value
+        this.setState({ sex })
     }
     handleChangeInputAge = async event => {
         const age = event.target.value
@@ -101,14 +97,14 @@ class PetsInsert extends Component {
     }
 
     handleIncludePet = async () => {
-        const { name, type, age, color, price } = this.state
-        const payload = { name, type, age, color, price }
+        const { type, sex, age, color, price } = this.state
+        const payload = { type, sex, age, color, price }
 
         await api.addPet(payload).then(res => {
             window.alert(`Pet inserted successfully`)
             this.setState({
-                name: '',
                 type: '',
+                sex: '',
                 age: '',
                 color: '',
                 price: '',
@@ -118,23 +114,23 @@ class PetsInsert extends Component {
     }
 
     render() {
-        const { name, type, age, color, price } = this.state
+        const { type, sex, age, color, price } = this.state
         return (
             <Wrapper>
                 <NavBar></NavBar>
                 <Container>
-                <Title>Add Pet</Title>
-                    <Label>Name: </Label>
-                    <InputText
-                        type="text"
-                        value={name}
-                        onChange={this.handleChangeInputName}
-                    />
+                    <Title>Add Pet</Title>
                     <Label>Type: </Label>
                     <InputText
                         type="text"
                         value={type}
                         onChange={this.handleChangeInputType}
+                    />
+                    <Label>Sex: </Label>
+                    <InputText
+                        type="text"
+                        value={sex}
+                        onChange={this.handleChangeInputSex}
                     />
                     <Label>Age: </Label>
                     <InputText

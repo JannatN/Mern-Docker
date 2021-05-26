@@ -50,8 +50,8 @@ updatePet = async (req, res) => {
                 message: 'Pet not found!',
             })
         }
-        pet.name = body.name
         pet.type = body.type
+        pet.sex = body.sex
         pet.age = body.age
         pet.color = body.color
         pet.price = body.price

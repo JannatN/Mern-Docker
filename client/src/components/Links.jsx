@@ -3,32 +3,24 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 
-// const List = styled.div.attrs({
-//     className: 'navbar-nav mr-auto',
-// })`
-// `
-
-const Item = styled.div.attrs({
-    className: 'item',
+const Div = styled.div.attrs({
+    className: 'div',
 })`
-    margin-top: 15px;
+    margin-left: 10px;
 `
 
 class Links extends Component {
     render() {
         return (
             <React.Fragment>
-                <Link to="/">
-                    Pets System
-                </Link>
-                    <Item>
-                    <Link to="/pets/list" className="link">
-                        List of Pets
+                    <Div>
+                        <Link to="/pets/list" className="link">
+                            List of Pets
                             </Link>
-                    <Link to="/pets/create" className="link">
-                        Add Pet
+                        <Link to="/pets/create" className="link">
+                            Add Pet
                 </Link>
-                </Item>
+                    </Div>
             </React.Fragment >
         )
     }

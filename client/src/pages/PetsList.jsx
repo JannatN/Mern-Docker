@@ -101,14 +101,15 @@ class PetList extends Component {
                 accessor: '_id',
                 filterable: true,
             },
-            {
-                Header: 'Name',
-                accessor: 'name',
-                filterable: true,
-            },
+
             {
                 Header: 'Type',
                 accessor: 'type',
+                filterable: true,
+            },
+            {
+                Header: 'Sex',
+                accessor: 'sex',
                 filterable: true,
             },
             {
