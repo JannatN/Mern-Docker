@@ -3,6 +3,7 @@
 This project is simple MERN stack app that allows the user to add, update, and delete a pet plus the ability to list all the pets in the system. This project aims to containerize the api server and react client and create docker-compose to connect them.
 
 ## To run the project:
+Run it on localhost:3000
 
 ```
 $ git clone https://github.com/JannatN/Mern-Docker.git
@@ -19,8 +20,8 @@ $ nodemon index.js
 ```
 $ cd Mern-Docker
 $ cd client
-$ npm install / yarn install
-$ npm start / yarn start
+$ npm install
+$ npm start 
 ```
 ## Containerization 
  Install docker and run the following in the terminal:
@@ -36,6 +37,6 @@ I followed this [tutorial](https://medium.com/swlh/how-to-create-your-first-mern
 
 ## Screenshots
 ![HOME](https://imgur.com/N2tKJr5.png)
-![LIST](https://imgur.com/TS5auIJ.png)
-![INSERT](https://imgur.com/mUh8pMG.png)
-![UPDATE](https://imgur.com/n22vcXm.png)
+![LIST](https://imgur.com/d14cqUF.png)
+![INSERT](https://imgur.com/aDdtxZM.png)
+![UPDATE](https://imgur.com/T8tTSSF.png)
