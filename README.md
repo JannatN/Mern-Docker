@@ -37,6 +37,6 @@ I followed this [tutorial](https://medium.com/swlh/how-to-create-your-first-mern
 
 ## Screenshots
 ![HOME](https://imgur.com/N2tKJr5.png)
-![LIST](https://imgur.com/d14cqUF.png)
-![INSERT](https://imgur.com/aDdtxZM.png)
+![LIST](https://imgur.com/VC67oJ2.png)
+![INSERT](https://imgur.com/axYNCUJ.png)
 ![UPDATE](https://imgur.com/T8tTSSF.png)
