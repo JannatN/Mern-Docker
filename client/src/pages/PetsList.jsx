@@ -10,13 +10,24 @@ const Wrapper = styled.div`
     width: 100%;
     margin-top:0px
     background-color: #fbece3;
+    height: 100vh;
     `
+const Title = styled.h1.attrs({
+    className: 'h1',
+})` 
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    color: #301f10;
+    font-weight: 700;
+        `
 
 const Container = styled.div.attrs({
-    className: 'form-group',
+    className: 'form',
 })`
     width: 100%;
-    margin-top:0px
+    margin-top:40px;
+    background-color:#fbece3;
+
 `
 const Update = styled.div`
     color: #ef9b0f;
@@ -149,6 +160,7 @@ class PetList extends Component {
             <Wrapper>
                 <NavBar></NavBar>
                 <Container>
+                    <Title>List of Pets</Title>
                     {showTable && (
                         <ReactTable
                             data={pets}

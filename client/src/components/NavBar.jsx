@@ -30,10 +30,9 @@ const InnerDiv = styled.div.attrs({
     className: 'innerDiv',
 })`  
      margin-left:30%;
-     margin-top:25px;
+     margin-top:30px;
      dispaly:grid;
-    grid-template-columns: auto auto ;
-    grid-column-gap: 5px;
+     grid-template-columns: auto auto auto ;
 
 `
 
@@ -53,11 +52,11 @@ class NavBar extends Component {
                     <Div>
                         <InnerDiv>
                             <Links />
-                            <img src={p1} width="40" height="40" alt="logo" />
-                            <img src={p2} width="40" height="40" alt="logo" />
-                            <img src={p3} width="40" height="40" alt="logo" />
-                            <img src={p4} width="40" height="40" alt="logo" />
-                            <img src={p5} width="40" height="40" alt="logo" />
+                            <img src={p1} width="30" height="30" alt="logo" />
+                            <img src={p2} width="30" height="30" alt="logo" />
+                            <img src={p3} width="30" height="30" alt="logo" />
+                            <img src={p4} width="30" height="30" alt="logo" />
+                            <img src={p5} width="30" height="30" alt="logo" />
                         </InnerDiv>
                     </Div>
                 </Container>

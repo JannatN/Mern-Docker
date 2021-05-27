@@ -5,21 +5,30 @@ import styled from 'styled-components'
 
 const Title = styled.h1.attrs({
     className: 'h1',
-})` 
+})`
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: center;
     color: #301f10;
     font-weight: 700;
-    `
 
-const Wrapper = styled.div.attrs({
+
+`
+
+const Container = styled.div.attrs({
     className: 'form-group',
+})`
+
+`
+const Wrapper = styled.div.attrs({
+    className: 'cont',
 })`
     width: 100%;
     margin-top:0px
     background-color: #fbece3;
+    height: 100vh;
 
 `
+
 
 const Label = styled.label`
     margin: 5px;
@@ -32,26 +41,22 @@ const InputText = styled.input.attrs({
 })`
     margin: 2px;
 `
-const Container = styled.div.attrs({
-    className: 'form-group',
-})`
-    width: 70%;
-    margin-left:10px;
-    margin-top:0px
-    padding-left: 22%;
-`
 
 const Button = styled.button.attrs({
     className: `btn btn-primary`,
 })`
     margin: 15px 15px 15px 5px;
+
 `
+
 
 const CancelButton = styled.a.attrs({
     className: `btn btn-danger`,
 })`
     margin: 15px 15px 15px 5px;
+    
 `
+
 
 class PetsUpdate extends Component {
     constructor(props) {

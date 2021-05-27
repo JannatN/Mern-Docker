@@ -18,10 +18,7 @@ const Title = styled.h1.attrs({
 const Container = styled.div.attrs({
     className: 'form-group',
 })`
-    width: 70%;
-    margin-left:10px;
-    margin-top:0px
-    padding-left: 22%;
+
 `
 const Wrapper = styled.div.attrs({
     className: 'cont',
@@ -29,8 +26,10 @@ const Wrapper = styled.div.attrs({
     width: 100%;
     margin-top:0px
     background-color: #fbece3;
+    height: 100vh;
 
 `
+
 
 const Label = styled.label`
     margin: 5px;
